@@ -41,7 +41,7 @@ public class GestioneGioco extends JPanel {
     //disegno lo sfondo usando il parametro graphics 
     public void disegnaSfondoGraphics(Graphics g) { 
         //immagine di sfondo
-        ImageIcon imageIcon = new ImageIcon("images/sfondoCitta3.png");
+        ImageIcon imageIcon = new ImageIcon("images/sfondoCampo1.jpg");
         Image sfondo = imageIcon.getImage();
         g.drawImage(sfondo, 0, 0, getWidth(), getHeight(), this);
     
