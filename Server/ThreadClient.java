@@ -63,10 +63,14 @@ public class ThreadClient implements Runnable {
                         }
                     //CONTROLLO IL MOVIMENTO DEL CARRO
                     } else if (comando.length() == 2) {
-                        String messaggio = gc.muoviCarro(comando.substring(0, 1), comando.substring(1, 2));
-                        //invio al client la lista di carri
-                        //prendo le posizioni a ciascuna lettera e aggiorno la posizione su grafica client
-                        //comunicazioneClient.inviaPosizioneModClient(writer, messaggio);
+                        System.out.println(comando.substring(1, 2));
+                        if(comando.substring(1, 2).equals("W") || comando.substring(1, 2).equals("A")  || comando.substring(1, 2).equals("S")  || comando.substring(1, 2).equals("D") ) {
+                            gc.muoviCarro(comando.substring(0, 1), comando.substring(1, 2));
+                        }
+                        else if(comando.substring(1, 2).equals("M")) {
+                            String sparo = gc.inizializzaSparo(comando.substring(0, 1));
+                            comunicazioneClient.inviaClientString(writer, sparo);
+                        }
                     }
                     if(sincronizzato == true) {
                         impostaTimer(timer, writer);

@@ -34,7 +34,7 @@ public class Messaggio {
         return comando;
     }
 
-    public void inviaClient(OutputStream out, byte[] bytes) throws IOException {
+    public void inviaClientBytes(OutputStream out, byte[] bytes) throws IOException {
         out.write(bytes);
     }
 
@@ -50,7 +50,7 @@ public class Messaggio {
         writer.println(combinedData);
     }
 
-    public void inviaPosizioneModClient(PrintWriter writer, String messaggio) {
+    public void inviaClientString(PrintWriter writer, String messaggio) {
         writer.println(messaggio);
     }
 
@@ -63,8 +63,8 @@ public class Messaggio {
         byte[] posXBytes = intArrayToByteArray(posXblocchi);
         byte[] posYBytes = intArrayToByteArray(posYblocchi);
 
-        comunicazioneClient.inviaClient(outputStream, posXBytes);
-        comunicazioneClient.inviaClient(outputStream, posYBytes);
+        comunicazioneClient.inviaClientBytes(outputStream, posXBytes);
+        comunicazioneClient.inviaClientBytes(outputStream, posYBytes);
     }
 
     public byte[] intArrayToByteArray(int[] arr) {
